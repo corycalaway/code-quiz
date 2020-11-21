@@ -20,3 +20,14 @@ a:link, a:visited {
     text-decoration: none;
     color: var(--primary-color);
 }
+
+h3 {
+    display: flex;
+    justify-content: center;
+}
+
+
+#introToQuiz p, h3, .centerJustify {
+    display: flex;
+    justify-content: center;
+}

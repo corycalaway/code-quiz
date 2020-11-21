@@ -1,8 +1,12 @@
 var timerEl = document.getElementById('timer');
+var allQuizSection = document.getElementById('allQuizQuestions')
 var timeLeft = 60;
 
-var countdown = function() {
+var startScreen = function() {
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
+    allQuizSection.style.display = 'none';
+
 };
 
-countdown();
+
+startScreen();
