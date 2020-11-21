@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #eb13d9;
+    --secondary-color: #63004d;
+    --tertiary-color: #140aa0;  
+}
+header {
+    display: flex;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: var(--primary-color);
+}
