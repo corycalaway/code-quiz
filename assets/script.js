@@ -1,13 +1,17 @@
 var timerEl = document.getElementById('timer');
 var allQuizSection = document.getElementById('allQuizQuestions')
+var startQuizEl = document.getElementById('startQuiz');
+var initalScreen = document.getElementById('introToQuiz');
 var timeLeft = 60;
+
 
 // questions array
 var questions = [
     // answer a2
     { q: 'Which of the following answers is Not a method for spanning multiple columns?', a1: 'grid-column: 8 / span 10', a2: 'grid-column: repeat(1, 3fr', a3: 'grid-column: 2/4', a4: 'grid-column: -1 / -3'},
     // answer a1
-    { q: 'Which is an example of an Object in JavaScript', a1: 'var obj = {'<br> 'name: "name"' <br> 'age: 23' <br> '};', a2: 'var obj {' <br> '=function obj;' <br> 'name = name;', a3: 'var obj = {' <br> 'name="name"' <br> 'return object', a4: 'var obj = function(newobject)'},
+    { q: 'sdfkjdfadfjasljfa', a1: 'correct', a2: 'not correct', a3: 'not correct', a4: 'not correct'},
+   //{ q: 'Which is an example of an Object in JavaScript?', a1: 'var obj = {'<br> 'name: "name"' <br> 'age: 23' <br> '};', a2: 'var obj {' <br> '=function obj;' <br> 'name = name;', a3: 'var obj = {' <br> 'name="name"' <br> 'return object', a4: 'var obj = function(newobject)'},
     // answer a3
     { q: 'sdfkjdfadfjasljfa', a1: 'not correct', a2: 'not correct', a3: 'correct', a4: 'not correct'},
     // answer a2
@@ -21,6 +25,10 @@ var startScreen = function() {
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
     allQuizSection.style.display = 'none';
 
+};
+
+function initiateQuiz() {
+    initalScreen.style.display = 'none';
 };
 
 // creat a questions array
@@ -41,3 +49,4 @@ var startScreen = function() {
 
 //activates start screen
 startScreen();
+startQuizEl.onclick = initiateQuiz;
