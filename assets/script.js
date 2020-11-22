@@ -4,38 +4,41 @@ var startQuizEl = document.getElementById('startQuiz');
 var initalScreen = document.getElementById('introToQuiz');
 var quizQuestionText = document.getElementById('quizQuestion');
 var buttonElOne = document.getElementById('answer1').addEventListener('click', function() {
-    answer1 = true;
+    answerCheck1 = true;
     checkAnswer();
 });
 var buttonElTwo = document.getElementById('answer2').addEventListener('click', function() {
-    answer2 = true;
+    answerCheck2 = true;
     checkAnswer();
 });
 var buttonElThree = document.getElementById('answer3').addEventListener('click', function() {
-    answer3 = true;
+    answerCheck3 = true;
     checkAnswer();
 });
 var buttonElFour = document.getElementById('answer4').addEventListener('click', function() {
-    answer4 = true;
+    answerCheck4 = true;
     checkAnswer();
 });
 var timeLeft = 60;
 var questionCount = 0;
-
+var answerCheck1 = 0;
+var answerCheck2 = 0;
+var answerCheck3 = 0;
+var answerCheck4 = 0;
 
 // questions array
 var questions = [
     // answer a2
     { q: 'Which of the following answers is Not a method for spanning multiple columns?', a1: 'grid-column: 8 / span 10', a2: 'grid-column: repeat(1, 3fr', a3: 'grid-column: 2/4', a4: 'grid-column: -1 / -3', correctA: 'grid-column: repeat(1, 3fr'},
     // answer a1
-    { q: 'a', a1: 'correct', a2: 'not correct', a3: 'not correct', a4: 'not correct'},
+    { q: 'a', a1: 'correct', a2: 'not correct', a3: 'not correct', a4: 'not correct', correctA: 'correct'},
    //{ q: 'Which is an example of an Object in JavaScript?', a1: 'var obj = {'<br> 'name: "name"' <br> 'age: 23' <br> '};', a2: 'var obj {' <br> '=function obj;' <br> 'name = name;', a3: 'var obj = {' <br> 'name="name"' <br> 'return object', a4: 'var obj = function(newobject)'},
     // answer a3
-    { q: 'b', a1: 'not correct', a2: 'not correct', a3: 'correct', a4: 'not correct'},
+    { q: 'b', a1: 'not correct', a2: 'not correct', a3: 'correct', a4: 'not correct', correctA: 'correct'},
     // answer a2
-    { q: 'c', a1: 'correct', a2: 'not correct', a3: 'not correct', a4: 'not correct'},
+    { q: 'c', a1: 'correct', a2: 'not correct', a3: 'not correct', a4: 'not correct', correctA: 'correct'},
     // answer a3
-    { q: 'd', a1: 'not correct', a2: 'not correct', a3: 'correct', a4: 'not correct'}
+    { q: 'd', a1: 'not correct', a2: 'not correct', a3: 'correct', a4: 'not correct', correctA: 'correct'}
 ]
 
 //start screen function
@@ -66,56 +69,84 @@ var checkAnswer = function() {
     for (var i = questionCount; i < questions.length; i++) {
         
         console.log(answer1)
-    if (answer1 === true && questions[i].a1 === questions[i].correctA) {
-        answer1 = 0;
+    if (answerCheck1 === true || answerCheck2 === true || answerCheck3 === true || answerCheck4 === true) {
+
+    if (answerCheck1 === true && questions[i].a1 === questions[i].correctA) {
+        answerCheck1 = 0;
         alert('correct');
-        return questionCount = questionCount + 1;
+        questionCount = questionCount + 1;
+        contQuestions();
         
-    } else if (answer2 === true && questions[i].a2 === questions[i].correctA) {
-        answer2 = 0;
+    } else if (answerCheck2 === true && questions[i].a2 === questions[i].correctA) {
+        answerCheck2 = 0;
         alert('correct')
-        return questionCount = questionCount + 1;
+        questionCount = questionCount + 1;
+        contQuestions();
 
-    } else if (answer3 === true && questions[i].a3 === questions[i].correctA) {
-        answer3 = 0;
+    } else if (answerCheck3 === true && questions[i].a3 === questions[i].correctA) {
+        answerCheck3 = 0;
         alert('correct')
-        return questionCount = questionCount + 1;
+        questionCount = questionCount + 1;
+        contQuestions();
 
-    } else if (answer4 === true && questions[i].a4 === questions[i].correctA) {
+    } else if (answerCheck4 === true && questions[i].a4 === questions[i].correctA) {
         alert('correct')
-        answer4 = 0;
-        return questionCount = questionCount + 1;
+        answerCheck4 = 0;
+        questionCount = questionCount + 1;
+        contQuestions();
 
-    } else if (answer1 === true && questions[i].a1 !== questions[i].correctA) {
-        answer1 = 0;
+    } else if (answerCheck1 === true && questions[i].a1 !== questions[i].correctA) {
+        answerCheck1 = 0;
         alert('incorrect')
-        return questionCount = questionCount + 1;
+        questionCount = questionCount + 1;
+        contQuestions();
 
-    } else if (answer2 === true && questions[i].a2 !== questions[i].correctA) {
-        answer2 = 0;
+    } else if (answerCheck2 === true && questions[i].a2 !== questions[i].correctA) {
+        answerCheck2 = 0;
         alert('incorrect')
-        return questionCount = questionCount + 1;
+        questionCount = questionCount + 1;
+        contQuestions();
 
-    } else if (answer3 === true && questions[i].a3 !== questions[i].correctA) {
-        answer3 = 0;
+    } else if (answerCheck3 === true && questions[i].a3 !== questions[i].correctA) {
+        answerCheck3 = 0;
         alert('incorrect')
-        return questionCount = questionCount + 1;
+        questionCount = questionCount + 1;
+        contQuestions();
 
-    } else if (answer4 === true && questions[i].a4 !== questions[i].correctA) {
-        answer4 = 0;
+    } else if (answerCheck4 === true && questions[i].a4 !== questions[i].correctA) {
+        answerChec4 = 0;
         alert('incorrect')
-        return questionCount = questionCount + 1;
+        questionCount = questionCount + 1;
+        contQuestions();
 
     } else {
-        answer1 = 0;
-        answer2 = 0;
-        answer3 = 0;
-        answer4 = 0;
+        answerCheck1 = 0;
+        answerCheck2 = 0;
+        answerCheck3 = 0;
+        answerCheck4 = 0;
         alert('incorrect')
+        questionCount = questionCount + 1;
+        contQuestions();
+    }} else {
         break;
     }
 }
-}
+};
+
+function contQuestions() {
+    // questions
+    for (var i = questionCount; i < questions.length; i++) {
+    quizQuestionText.textContent = questions[i].q;
+    answer1.textContent = questions[i].a1;
+    answer2.textContent = questions[i].a2;
+    answer3.textContent = questions[i].a3;
+    answer4.textContent = questions[i].a4;  
+        return;
+    }
+};
+// while (questionCount > 0 && questionCount < questions.length) {
+
+// };
 
 // creat a questions array
 
