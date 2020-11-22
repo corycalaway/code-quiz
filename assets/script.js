@@ -20,6 +20,8 @@ var buttonElFour = document.getElementById('answer4').addEventListener('click', 
     checkAnswer();
 });
 var timeLeft = 60;
+var questionCount = 0;
+
 
 // questions array
 var questions = [
@@ -53,49 +55,64 @@ function initiateQuiz() {
     answer1.textContent = questions[i].a1;
     answer2.textContent = questions[i].a2;
     answer3.textContent = questions[i].a3;
-    answer4.textContent = questions[i].a4;    
+    answer4.textContent = questions[i].a4;  
         break;
     }
 };
 
+
 // check answer function
 var checkAnswer = function() {
-    for (var i = 0; i < questions.length; i++) {
+    for (var i = questionCount; i < questions.length; i++) {
+        
+        console.log(answer1)
     if (answer1 === true && questions[i].a1 === questions[i].correctA) {
+        answer1 = 0;
         alert('correct');
-        break;
-
+        return questionCount = questionCount + 1;
+        
     } else if (answer2 === true && questions[i].a2 === questions[i].correctA) {
+        answer2 = 0;
         alert('correct')
-        break;
+        return questionCount = questionCount + 1;
 
     } else if (answer3 === true && questions[i].a3 === questions[i].correctA) {
+        answer3 = 0;
         alert('correct')
-        break;
+        return questionCount = questionCount + 1;
 
     } else if (answer4 === true && questions[i].a4 === questions[i].correctA) {
         alert('correct')
-        break;
+        answer4 = 0;
+        return questionCount = questionCount + 1;
 
     } else if (answer1 === true && questions[i].a1 !== questions[i].correctA) {
+        answer1 = 0;
         alert('incorrect')
+        return questionCount = questionCount + 1;
 
     } else if (answer2 === true && questions[i].a2 !== questions[i].correctA) {
+        answer2 = 0;
         alert('incorrect')
-        break;
+        return questionCount = questionCount + 1;
 
     } else if (answer3 === true && questions[i].a3 !== questions[i].correctA) {
+        answer3 = 0;
         alert('incorrect')
-        break;
+        return questionCount = questionCount + 1;
 
     } else if (answer4 === true && questions[i].a4 !== questions[i].correctA) {
+        answer4 = 0;
         alert('incorrect')
-        break;
+        return questionCount = questionCount + 1;
 
     } else {
+        answer1 = 0;
+        answer2 = 0;
+        answer3 = 0;
+        answer4 = 0;
         alert('incorrect')
         break;
-
     }
 }
 }
