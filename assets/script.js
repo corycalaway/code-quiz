@@ -96,53 +96,85 @@ var checkAnswer = function() {
         answerCheck1 = 0;
         alert('correct');
         questionCount = questionCount + 1;
+        if (questionCount === questions.length) {
+            finalScore();
+        } else {
         contQuestions();
+        };
         
     } else if (answerCheck2 === true && questions[i].a2 === questions[i].correctA) {
         answerCheck2 = 0;
         alert('correct')
         questionCount = questionCount + 1;
+        if (questionCount === questions.length) {
+            finalScore();
+        } else {
         contQuestions();
+        };
 
     } else if (answerCheck3 === true && questions[i].a3 === questions[i].correctA) {
         answerCheck3 = 0;
         alert('correct')
         questionCount = questionCount + 1;
+        if (questionCount === questions.length) {
+            finalScore();
+        } else {
         contQuestions();
+        };
 
     } else if (answerCheck4 === true && questions[i].a4 === questions[i].correctA) {
         alert('correct')
         answerCheck4 = 0;
         questionCount = questionCount + 1;
+        if (questionCount === questions.length) {
+            finalScore();
+        } else {
         contQuestions();
+        };
 
     } else if (answerCheck1 === true && questions[i].a1 !== questions[i].correctA) {
         answerCheck1 = 0;
         alert('incorrect')
         questionCount = questionCount + 1;
         timeLeft = timeLeft - 10;
+        if (questionCount === questions.length) {
+            finalScore();
+        } else {
         contQuestions();
+        };
 
     } else if (answerCheck2 === true && questions[i].a2 !== questions[i].correctA) {
         answerCheck2 = 0;
         alert('incorrect')
         questionCount = questionCount + 1;
         timeLeft = timeLeft - 10;
+        if (questionCount === questions.length) {
+            finalScore();
+        } else {
         contQuestions();
+        };
 
     } else if (answerCheck3 === true && questions[i].a3 !== questions[i].correctA) {
         answerCheck3 = 0;
         alert('incorrect')
         questionCount = questionCount + 1;
         timeLeft = timeLeft - 10;
+        if (questionCount === questions.length) {
+            finalScore();
+        } else {
         contQuestions();
+        };
 
     } else if (answerCheck4 === true && questions[i].a4 !== questions[i].correctA) {
         answerCheck4 = 0;
         alert('incorrect')
         questionCount = questionCount + 1;
         timeLeft = timeLeft - 10;
+        if (questionCount === questions.length) {
+            finalScore();
+        } else {
         contQuestions();
+        };
 
     } else {
         answerCheck1 = 0;
@@ -152,7 +184,11 @@ var checkAnswer = function() {
         alert('incorrect')
         questionCount = questionCount + 1;
         timeLeft = timeLeft - 10;
+        if (questionCount === questions.length) {
+            finalScore();
+        } else {
         contQuestions();
+        };
     }} else {
         break;
     }
