@@ -19,6 +19,7 @@ var buttonElFour = document.getElementById('answer4').addEventListener('click', 
     answerCheck4 = true;
     checkAnswer();
 });
+var finalScoreText = document.getElementById('yourFinalScore')
 var timeLeft = 50;
 var questionCount = 0;
 var answerCheck1 = 0;
@@ -221,6 +222,7 @@ function finalScore () {
     totalScore = timeLeft;
     alert(totalScore);
     clearInterval(timeInterval);
+    finalScoreText.textContent = 'Your final score is ' + totalScore;
 };
 
 
