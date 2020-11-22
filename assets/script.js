@@ -19,12 +19,13 @@ var buttonElFour = document.getElementById('answer4').addEventListener('click', 
     answerCheck4 = true;
     checkAnswer();
 });
-var timeLeft = 100;
+var timeLeft = 50;
 var questionCount = 0;
 var answerCheck1 = 0;
 var answerCheck2 = 0;
 var answerCheck3 = 0;
 var answerCheck4 = 0;
+var totalScore = 0;
 
 // questions array
 var questions = [
@@ -47,9 +48,11 @@ var startScreen = function() {
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
 };
 
+
+var timeInterval = setInterval(countdown, 1000);
+
 function countdown () {
 
-var timeInterval = setInterval(function() {
     
     if (timeLeft > 0) {
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
@@ -59,13 +62,17 @@ var timeInterval = setInterval(function() {
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
     initalScreen.style.display = 'none';
     allQuizSection.style.display = 'none';
-    timeLeft --;
+    timeLeft = 0;
+    timerEl.textContent = "Game Over";
+    clearInterval(timeInterval);
+    finalScore();
     } else {
+        timeLeft = 0;
+        timerEl.texContent = "Game Over";
         clearInterval(timeInterval);
         finalScore();
     }
-},1000);
-}
+};
 
 
 function initiateQuiz() {
@@ -210,6 +217,10 @@ function contQuestions() {
 function finalScore () {
     initalScreen.style.display = 'none';
     allQuizSection.style.display = 'none';
+    timerEl.textContent = 'Game Over';
+    totalScore = timeLeft;
+    alert(totalScore);
+    clearInterval(timeInterval);
 };
 
 
