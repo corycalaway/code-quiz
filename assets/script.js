@@ -3,12 +3,23 @@ var allQuizSection = document.getElementById('allQuizQuestions')
 var startQuizEl = document.getElementById('startQuiz');
 var initalScreen = document.getElementById('introToQuiz');
 var quizQuestionText = document.getElementById('quizQuestion');
-var buttonElOne = document.getElementById('answer1')
-var buttonElTwo = document.getElementById('answer2')
-var buttonElThree = document.getElementById('answer3')
-var buttonElFour = document.getElementById('answer4')
+var buttonElOne = document.getElementById('answer1').addEventListener('click', function() {
+    answer1 = true;
+    checkAnswer();
+});
+var buttonElTwo = document.getElementById('answer2').addEventListener('click', function() {
+    answer2 = true;
+    checkAnswer();
+});
+var buttonElThree = document.getElementById('answer3').addEventListener('click', function() {
+    answer3 = true;
+    checkAnswer();
+});
+var buttonElFour = document.getElementById('answer4').addEventListener('click', function() {
+    answer4 = true;
+    checkAnswer();
+});
 var timeLeft = 60;
-
 
 // questions array
 var questions = [
@@ -44,8 +55,18 @@ function initiateQuiz() {
     answer3.textContent = questions[i].a3;
     answer4.textContent = questions[i].a4;    
         break;
-}
+    }
+        
 };
+
+var checkAnswer = function() {
+    if (answer1 === true || answer2 === true) {
+        alert('test');
+    } else {
+        alert('oops');
+    }
+}
+
 // creat a questions array
 
 // when start quiz button start timer
