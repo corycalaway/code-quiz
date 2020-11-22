@@ -19,7 +19,7 @@ var buttonElFour = document.getElementById('answer4').addEventListener('click', 
     answerCheck4 = true;
     checkAnswer();
 });
-var timeLeft = 60;
+var timeLeft = 10;
 var questionCount = 0;
 var answerCheck1 = 0;
 var answerCheck2 = 0;
@@ -43,12 +43,33 @@ var questions = [
 
 //start screen function
 var startScreen = function() {
-    timerEl.textContent = 'Time Remaining: ' + timeLeft;
     allQuizSection.style.display = 'none';
-
+    timerEl.textContent = 'Time Remaining: ' + timeLeft;
 };
 
+function countdown () {
+
+var timeInterval = setInterval(function() {
+    
+    if (timeLeft > 0) {
+    timerEl.textContent = 'Time Remaining: ' + timeLeft;
+    timeLeft --;
+
+    } else if (timeLeft === 0) {
+    timerEl.textContent = 'Time Remaining: ' + timeLeft;
+    initalScreen.style.display = 'none';
+    allQuizSection.style.display = 'none';
+    timeLeft --;
+    } else {
+        clearInterval(timeInterval);
+        finalScore();
+    }
+},1000);
+}
+
+
 function initiateQuiz() {
+    countdown();
     // hide start screen display questions screen
     initalScreen.style.display = 'none';
     allQuizSection.style.display = 'block';
@@ -144,6 +165,14 @@ function contQuestions() {
         return;
     }
 };
+
+function finalScore () {
+    initalScreen.style.display = 'none';
+    allQuizSection.style.display = 'none';
+};
+
+
+
 // while (questionCount > 0 && questionCount < questions.length) {
 
 // };
@@ -166,4 +195,5 @@ function contQuestions() {
 
 //activates start screen
 startScreen();
+
 startQuizEl.onclick = initiateQuiz;
