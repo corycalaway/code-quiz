@@ -114,7 +114,7 @@ var checkAnswer = function() {
         contQuestions();
 
     } else if (answerCheck4 === true && questions[i].a4 !== questions[i].correctA) {
-        answerChec4 = 0;
+        answerCheck4 = 0;
         alert('incorrect')
         questionCount = questionCount + 1;
         contQuestions();
