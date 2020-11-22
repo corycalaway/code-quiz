@@ -3,6 +3,7 @@ var allQuizSection = document.getElementById('allQuizQuestions')
 var startQuizEl = document.getElementById('startQuiz');
 var initalScreen = document.getElementById('introToQuiz');
 var quizQuestionText = document.getElementById('quizQuestion');
+var fullFinalScoreSection = document.getElementById('finalScoreSection');
 var buttonElOne = document.getElementById('answer1').addEventListener('click', function() {
     answerCheck1 = true;
     checkAnswer();
@@ -46,6 +47,7 @@ var questions = [
 //start screen function
 var startScreen = function() {
     allQuizSection.style.display = 'none';
+    fullFinalScoreSection.style.display = 'none';
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
 };
 
@@ -218,6 +220,7 @@ function contQuestions() {
 function finalScore () {
     initalScreen.style.display = 'none';
     allQuizSection.style.display = 'none';
+    fullFinalScoreSection.style.display = 'block';
     timerEl.textContent = 'Game Over';
     totalScore = timeLeft;
     alert(totalScore);
