@@ -25,7 +25,7 @@ var buttonElFour = document.getElementById('answer4').addEventListener('click', 
 };
 clickButtonFunction();
 var finalScoreText = document.getElementById('yourFinalScore')
-var timeLeft = 10;
+var timeLeft = 100;
 var questionCount = 0;
 var answerCheck1 = 0;
 var answerCheck2 = 0;
@@ -33,6 +33,13 @@ var answerCheck3 = 0;
 var answerCheck4 = 0;
 var totalScore = 0;
 
+var enterNameForHighScore = function() {
+var createNameHighScore = document.createElement('input')
+createNameHighScore.setAttribute('type', 'text');
+createNameHighScore.setAttribute('id', 'inputNameHighScore')
+fullFinalScoreSection.appendChild(createNameHighScore);
+
+}
 // questions array
 var questions = [
     // answer a2
@@ -234,6 +241,7 @@ function finalScore (timeInterval) {
     alert(totalScore);
     clearInterval(timeInterval);
     finalScoreText.textContent = 'Your final score is ' + totalScore;
+    enterNameForHighScore();
 };
 
 
