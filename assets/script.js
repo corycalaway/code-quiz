@@ -56,15 +56,48 @@ function initiateQuiz() {
     answer4.textContent = questions[i].a4;    
         break;
     }
-        
 };
 
+// check answer function
 var checkAnswer = function() {
-    if (answer1 === true || answer2 === true) {
-        alert('test');
+    for (var i = 0; i < questions.length; i++) {
+    if (answer1 === true && questions[i].a1 === questions[i].correctA) {
+        alert('correct');
+        break;
+
+    } else if (answer2 === true && questions[i].a2 === questions[i].correctA) {
+        alert('correct')
+        break;
+
+    } else if (answer3 === true && questions[i].a3 === questions[i].correctA) {
+        alert('correct')
+        break;
+
+    } else if (answer4 === true && questions[i].a4 === questions[i].correctA) {
+        alert('correct')
+        break;
+
+    } else if (answer1 === true && questions[i].a1 !== questions[i].correctA) {
+        alert('incorrect')
+
+    } else if (answer2 === true && questions[i].a2 !== questions[i].correctA) {
+        alert('incorrect')
+        break;
+
+    } else if (answer3 === true && questions[i].a3 !== questions[i].correctA) {
+        alert('incorrect')
+        break;
+
+    } else if (answer4 === true && questions[i].a4 !== questions[i].correctA) {
+        alert('incorrect')
+        break;
+
     } else {
-        alert('oops');
+        alert('incorrect')
+        break;
+
     }
+}
 }
 
 // creat a questions array
