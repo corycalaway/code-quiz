@@ -34,10 +34,21 @@ var answerCheck4 = 0;
 var totalScore = 0;
 
 var enterNameForHighScore = function() {
-var createNameHighScore = document.createElement('input')
+var enterNameTextHighScore = document.createElement('p');
+var nameNode = document.createTextNode('Enter Name:');
+enterNameTextHighScore.appendChild(nameNode);
+fullFinalScoreSection.appendChild(enterNameTextHighScore);
+
+var createNameHighScore = document.createElement('input');
 createNameHighScore.setAttribute('type', 'text');
-createNameHighScore.setAttribute('id', 'inputNameHighScore')
+createNameHighScore.setAttribute('id', 'inputNameHighScore');
 fullFinalScoreSection.appendChild(createNameHighScore);
+
+var submitHighScoreButton = document.createElement('BUTTON');
+submitHighScoreButton.setAttribute = ('type', 'submit');
+var submitNode = document.createTextNode('Submit');
+submitHighScoreButton.appendChild (submitNode);
+fullFinalScoreSection.appendChild(submitHighScoreButton);
 
 }
 // questions array
@@ -69,7 +80,7 @@ function countdown (timeInterval) {
     if (totalScore > 0) {
     timerEl.texContent = "Game Over";
     clearInterval(timeInterval);
-    finalScore();
+    
     } else {
 
      if (timeLeft > 0) {
