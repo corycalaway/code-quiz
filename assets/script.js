@@ -4,24 +4,28 @@ var startQuizEl = document.getElementById('startQuiz');
 var initalScreen = document.getElementById('introToQuiz');
 var quizQuestionText = document.getElementById('quizQuestion');
 var fullFinalScoreSection = document.getElementById('finalScoreSection');
+//function
+var clickButtonFunction = function(timeInterval) {
 var buttonElOne = document.getElementById('answer1').addEventListener('click', function() {
     answerCheck1 = true;
-    checkAnswer();
+    checkAnswer(timeInterval);
 });
 var buttonElTwo = document.getElementById('answer2').addEventListener('click', function() {
     answerCheck2 = true;
-    checkAnswer();
+    checkAnswer(timeInterval);
 });
 var buttonElThree = document.getElementById('answer3').addEventListener('click', function() {
     answerCheck3 = true;
-    checkAnswer();
+    checkAnswer(timeInterval);
 });
 var buttonElFour = document.getElementById('answer4').addEventListener('click', function() {
     answerCheck4 = true;
-    checkAnswer();
+    checkAnswer(timeInterval);
 });
+};
+clickButtonFunction();
 var finalScoreText = document.getElementById('yourFinalScore')
-var timeLeft = 50;
+var timeLeft = 10;
 var questionCount = 0;
 var answerCheck1 = 0;
 var answerCheck2 = 0;
@@ -51,13 +55,17 @@ var startScreen = function() {
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
 };
 
+function countdown (timeInterval) {
 
-var timeInterval = setInterval(countdown, 1000);
+    var timeInterval = setInterval(function() {
 
-function countdown () {
+    if (totalScore > 0) {
+    timerEl.texContent = "Game Over";
+    clearInterval(timeInterval);
+    finalScore();
+    } else {
 
-    
-    if (timeLeft > 0) {
+     if (timeLeft > 0) {
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
     timeLeft --;
 
@@ -74,8 +82,8 @@ function countdown () {
         timerEl.texContent = "Game Over";
         clearInterval(timeInterval);
         finalScore();
-    }
-};
+    }}
+},1000);}
 
 
 function initiateQuiz() {
@@ -96,7 +104,7 @@ function initiateQuiz() {
 
 
 // check answer function
-var checkAnswer = function() {
+var checkAnswer = function(timeInterval) {
     for (var i = questionCount; i < questions.length; i++) {
         
         console.log(answer1)
@@ -107,7 +115,7 @@ var checkAnswer = function() {
         alert('correct');
         questionCount = questionCount + 1;
         if (questionCount === questions.length) {
-            finalScore();
+            finalScore(timeInterval);
         } else {
         contQuestions();
         };
@@ -117,7 +125,7 @@ var checkAnswer = function() {
         alert('correct')
         questionCount = questionCount + 1;
         if (questionCount === questions.length) {
-            finalScore();
+            finalScore(timeInterval);
         } else {
         contQuestions();
         };
@@ -127,7 +135,7 @@ var checkAnswer = function() {
         alert('correct')
         questionCount = questionCount + 1;
         if (questionCount === questions.length) {
-            finalScore();
+            finalScore(timeInterval);
         } else {
         contQuestions();
         };
@@ -137,7 +145,7 @@ var checkAnswer = function() {
         answerCheck4 = 0;
         questionCount = questionCount + 1;
         if (questionCount === questions.length) {
-            finalScore();
+            finalScore(timeInterval);
         } else {
         contQuestions();
         };
@@ -148,7 +156,7 @@ var checkAnswer = function() {
         questionCount = questionCount + 1;
         timeLeft = timeLeft - 10;
         if (questionCount === questions.length) {
-            finalScore();
+            finalScore(timeInterval);
         } else {
         contQuestions();
         };
@@ -159,7 +167,7 @@ var checkAnswer = function() {
         questionCount = questionCount + 1;
         timeLeft = timeLeft - 10;
         if (questionCount === questions.length) {
-            finalScore();
+            finalScore(timeInterval);
         } else {
         contQuestions();
         };
@@ -170,7 +178,7 @@ var checkAnswer = function() {
         questionCount = questionCount + 1;
         timeLeft = timeLeft - 10;
         if (questionCount === questions.length) {
-            finalScore();
+            finalScore(timeInterval);
         } else {
         contQuestions();
         };
@@ -181,7 +189,7 @@ var checkAnswer = function() {
         questionCount = questionCount + 1;
         timeLeft = timeLeft - 10;
         if (questionCount === questions.length) {
-            finalScore();
+            finalScore(timeInterval);
         } else {
         contQuestions();
         };
@@ -195,7 +203,7 @@ var checkAnswer = function() {
         questionCount = questionCount + 1;
         timeLeft = timeLeft - 10;
         if (questionCount === questions.length) {
-            finalScore();
+            finalScore(timeInterval);
         } else {
         contQuestions();
         };
@@ -217,7 +225,7 @@ function contQuestions() {
     }
 };
 
-function finalScore () {
+function finalScore (timeInterval) {
     initalScreen.style.display = 'none';
     allQuizSection.style.display = 'none';
     fullFinalScoreSection.style.display = 'block';
