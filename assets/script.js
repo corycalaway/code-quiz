@@ -19,7 +19,7 @@ var buttonElFour = document.getElementById('answer4').addEventListener('click', 
     answerCheck4 = true;
     checkAnswer();
 });
-var timeLeft = 10;
+var timeLeft = 100;
 var questionCount = 0;
 var answerCheck1 = 0;
 var answerCheck2 = 0;
@@ -120,24 +120,28 @@ var checkAnswer = function() {
         answerCheck1 = 0;
         alert('incorrect')
         questionCount = questionCount + 1;
+        timeLeft = timeLeft - 10;
         contQuestions();
 
     } else if (answerCheck2 === true && questions[i].a2 !== questions[i].correctA) {
         answerCheck2 = 0;
         alert('incorrect')
         questionCount = questionCount + 1;
+        timeLeft = timeLeft - 10;
         contQuestions();
 
     } else if (answerCheck3 === true && questions[i].a3 !== questions[i].correctA) {
         answerCheck3 = 0;
         alert('incorrect')
         questionCount = questionCount + 1;
+        timeLeft = timeLeft - 10;
         contQuestions();
 
     } else if (answerCheck4 === true && questions[i].a4 !== questions[i].correctA) {
         answerCheck4 = 0;
         alert('incorrect')
         questionCount = questionCount + 1;
+        timeLeft = timeLeft - 10;
         contQuestions();
 
     } else {
@@ -147,6 +151,7 @@ var checkAnswer = function() {
         answerCheck4 = 0;
         alert('incorrect')
         questionCount = questionCount + 1;
+        timeLeft = timeLeft - 10;
         contQuestions();
     }} else {
         break;
