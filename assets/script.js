@@ -4,10 +4,14 @@ var startQuizEl = document.getElementById('startQuiz');
 var initalScreen = document.getElementById('introToQuiz');
 var quizQuestionText = document.getElementById('quizQuestion');
 var fullFinalScoreSection = document.getElementById('finalScoreSection');
-var highScoreSection = document.getElementById('highScoresViewSection')
+var highScoreSection = document.getElementById('highScoresViewSection');
 var highScore1Top = document.getElementById('highScore1')
 var highScore2Top = document.getElementById('highScore2')
 var highScore3Top = document.getElementById('highScore3')
+var hideHeaderSection = document.getElementById('hideHeader')
+var linkHighScores = document.getElementById('highScoresLink').addEventListener('click', function() {
+    viewHighScores()
+})
 //function
 var clickButtonFunction = function(timeInterval) {
 var buttonElOne = document.getElementById('answer1').addEventListener('click', function() {
@@ -102,6 +106,8 @@ var viewHighScores = function () {
     allQuizSection.style.display = 'none';
     fullFinalScoreSection.style.display = 'none';
     fullFinalScoreSection.style.display = 'none';
+    initalScreen.style.display = 'none';
+    hideHeaderSection.style.display='none'
     highScoreSection.style.display = 'block';
 
     // if (localStorageArray.length === 0) {
@@ -132,9 +138,12 @@ var viewHighScores = function () {
 
 //start screen function
 var startScreen = function() {
+    // initalScreen.style.display = 'none';
+    hideHeaderSection.style.display='hidden';
     allQuizSection.style.display = 'none';
     fullFinalScoreSection.style.display = 'none';
     highScoreSection.style.display = 'none';
+    
 
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
     loadSavedData();
