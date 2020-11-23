@@ -34,7 +34,21 @@ var answerCheck4 = 0;
 var totalScore = 0;
 var localStorageArray = [];
 
+// load saved data
+var loadSavedData = function () {
+    var savedData = localStorage.getItem('localStorageArray');
+    localStorageArray.push(savedData)
+    if(!savedData) {
+        return false;
+    }
+    savedData = JSON.parse(savedData)
+    console.log(savedData)
 
+    // for (var i = 0; i < savedData.length; i++) {
+    //     highScoresPage(savedData[i]);
+    // }
+}
+// enter highscore info
 var enterNameForHighScore = function() {
 var enterNameTextHighScore = document.createElement('p');
 var nameNode = document.createTextNode('Enter Name:');
@@ -57,7 +71,7 @@ submitHighScoreButton.addEventListener('click', function() {
 
 taskDataObj.storeName = createNameHighScore.value;
 taskDataObj.storeScore = totalScore;
-
+localStorageArray.push(taskDataObj);
 localStorage.setItem('localStorageArray', JSON.stringify(localStorageArray));
 
 }
@@ -84,6 +98,7 @@ var startScreen = function() {
     allQuizSection.style.display = 'none';
     fullFinalScoreSection.style.display = 'none';
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
+    loadSavedData();
 };
 
 function countdown (timeInterval) {
