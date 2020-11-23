@@ -156,7 +156,15 @@ var viewHighScores = function () {
   initalScreen.style.display = "none";
   hideHeaderSection.style.display = "none";
   highScoreSection.style.display = "block";
+  var returnHomePage = document.createElement("Button");
+  returnHomePage.setAttribute = ("type", "submit");
+  var returnNode = document.createTextNode("Return to quiz");
+  returnHomePage.appendChild(returnNode);
+  highScoreSection.appendChild(returnHomePage);
 
+  returnHomePage.addEventListener("click", function () {
+    returnHomePage.remove();
+    startScreen();
   localStorageArray.sort(function (a, b) {
     return parseFloat(b["storeScore"]) - parseFloat(a["storeScore"]);
   })[0]["storeName"];
@@ -174,15 +182,7 @@ var viewHighScores = function () {
     " Total Points: " +
     localStorageArray[2].storeScore;
 
-  var returnHomePage = document.createElement("Button");
-  returnHomePage.setAttribute = ("type", "submit");
-  var returnNode = document.createTextNode("Return to quiz");
-  returnHomePage.appendChild(returnNode);
-  highScoreSection.appendChild(returnHomePage);
-
-  returnHomePage.addEventListener("click", function () {
-    returnHomePage.remove();
-    startScreen();
+  
   });
 };
 
