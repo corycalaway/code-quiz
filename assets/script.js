@@ -134,12 +134,28 @@ var viewHighScores = function () {
         // highScore3Top.textContent = localStorageArray[i].storeName;  
         //     break;
     }      
+var returnHomePage = document.createElement('Button');
+returnHomePage.setAttribute = ('type', 'submit');
+var returnNode = document.createTextNode('Return to quiz');
+returnHomePage.appendChild(returnNode);
+highScoreSection.appendChild(returnHomePage);
+
+returnHomePage.addEventListener('click', function() {
+    startScreen();
+})
+
+// var submitHighScoreButton = document.createElement('BUTTON');
+// submitHighScoreButton.setAttribute = ('type', 'submit');
+// var submitNode = document.createTextNode('Submit');
+// submitHighScoreButton.appendChild (submitNode);
+// fullFinalScoreSection.appendChild(submitHighScoreButton);
 }
 
 //start screen function
 var startScreen = function() {
-    // initalScreen.style.display = 'none';
-    hideHeaderSection.style.display='hidden';
+     initalScreen.style.display = 'block';
+     hideHeaderSection.style.display='flex';
+     hideHeaderSection.style.justifyContent='space-between';
     allQuizSection.style.display = 'none';
     fullFinalScoreSection.style.display = 'none';
     highScoreSection.style.display = 'none';
