@@ -5,6 +5,9 @@ var initalScreen = document.getElementById('introToQuiz');
 var quizQuestionText = document.getElementById('quizQuestion');
 var fullFinalScoreSection = document.getElementById('finalScoreSection');
 var highScoreSection = document.getElementById('highScoresViewSection')
+var highScore1Top = document.getElementById('highScore1')
+var highScore2Top = document.getElementById('highScore2')
+var highScore3Top = document.getElementById('highScore3')
 //function
 var clickButtonFunction = function(timeInterval) {
 var buttonElOne = document.getElementById('answer1').addEventListener('click', function() {
@@ -101,6 +104,30 @@ var viewHighScores = function () {
     fullFinalScoreSection.style.display = 'none';
     highScoreSection.style.display = 'block';
 
+    // if (localStorageArray.length === 0) {
+    //     return -1;
+    // }
+
+    // var max = localStorageArray[0];
+    // var maxIndex = 0;
+
+
+   
+    //     if (localStorageArray[i].storeName > max) {
+    //         maxIndex = i;
+    //         max = localStorageArray[i].storeName;
+    //     }
+    // }
+    // return maxIndex;
+    for (var i = 0; i < localStorageArray.length; i++) {
+        
+        
+        highScore1Top.textContent = localStorageArray[i].storeName + ' points ' + localStorageArray[i].storeScore;
+        
+        // highScore2Top.textContent = localStorageArray[i].storeName;
+        // highScore3Top.textContent = localStorageArray[i].storeName;  
+        //     break;
+    }      
 }
 
 //start screen function
@@ -166,7 +193,7 @@ function initiateQuiz() {
 var checkAnswer = function(timeInterval) {
     for (var i = questionCount; i < questions.length; i++) {
         
-        console.log(answer1)
+        
     if (answerCheck1 === true || answerCheck2 === true || answerCheck3 === true || answerCheck4 === true) {
 
     if (answerCheck1 === true && questions[i].a1 === questions[i].correctA) {
