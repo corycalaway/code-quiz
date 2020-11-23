@@ -25,13 +25,15 @@ var buttonElFour = document.getElementById('answer4').addEventListener('click', 
 };
 clickButtonFunction();
 var finalScoreText = document.getElementById('yourFinalScore')
-var timeLeft = 10;
+var timeLeft = 100;
 var questionCount = 0;
 var answerCheck1 = 0;
 var answerCheck2 = 0;
 var answerCheck3 = 0;
 var answerCheck4 = 0;
 var totalScore = 0;
+var localStorageArray = [];
+
 
 var enterNameForHighScore = function() {
 var enterNameTextHighScore = document.createElement('p');
@@ -53,9 +55,10 @@ fullFinalScoreSection.appendChild(submitHighScoreButton);
 
 submitHighScoreButton.addEventListener('click', function() {
 
-var name = createNameHighScore.value
+taskDataObj.storeName = createNameHighScore.value;
+taskDataObj.storeScore = totalScore;
 
-localStorage.setItem('name', name);
+localStorage.setItem('localStorageArray', JSON.stringify(localStorageArray));
 
 }
 )}
@@ -287,6 +290,10 @@ function finalScore (timeInterval) {
 
 // when view highscore is selected hide all sections except for the highscore section.
 
+var taskDataObj = {
+    storeName: 0,
+    storeScore: 0,
+};
 //activates start screen
 startScreen();
 
