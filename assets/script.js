@@ -95,7 +95,7 @@ var questions = [
     // answer a2
     { q: 'Which of the following answers is Not a method for spanning multiple columns?', a1: 'grid-column: 8 / span 10', a2: 'grid-column: repeat(1, 3fr', a3: 'grid-column: 2/4', a4: 'grid-column: -1 / -3', correctA: 'grid-column: repeat(1, 3fr'},
     // answer a1
-    { q: 'a', a1: 'correct', a2: 'not correct', a3: 'not correct', a4: 'not correct', correctA: 'correct'},
+    { q: 'A boolean is another term for binary', a1: 'False', a2: 'True', a3: 'Sometimes', a4: 'A boolean is used to apply numbers to variables', correctA: 'False'},
    //{ q: 'Which is an example of an Object in JavaScript?', a1: 'var obj = {'<br> 'name: "name"' <br> 'age: 23' <br> '};', a2: 'var obj {' <br> '=function obj;' <br> 'name = name;', a3: 'var obj = {' <br> 'name="name"' <br> 'return object', a4: 'var obj = function(newobject)'},
     // answer a3
     { q: 'b', a1: 'not correct', a2: 'not correct', a3: 'correct', a4: 'not correct', correctA: 'correct'},
@@ -105,6 +105,15 @@ var questions = [
     { q: 'd', a1: 'not correct', a2: 'not correct', a3: 'correct', a4: 'not correct', correctA: 'correct'}
 ]
 
+// function getMax(localStorageArray, prop) {
+//     var max;
+//     for (var i=0 ; i < localStorageArray.length ; i++) {
+//         if (max == null || parseInt(localStorageArray[i][prop]) > parseInt(max[prop]))
+//             max = localStorageArray[i];
+//     }
+//     viewHighScores(max);
+// }
+// getMax()
 // view high scores
 var viewHighScores = function () {
     allQuizSection.style.display = 'none';
@@ -113,15 +122,28 @@ var viewHighScores = function () {
     initalScreen.style.display = 'none';
     hideHeaderSection.style.display='none'
     highScoreSection.style.display = 'block';
+ 
+    localStorageArray.sort( 
+        function(a, b) {
+           return parseFloat(b['storeScore']) - parseFloat(a['storeScore']);
+        }
+      )[0]['storeName']
 
+      highScore1Top.textContent = localStorageArray[0].storeName + " Total Points: " + localStorageArray[0].storeScore;
+      highScore2Top.textContent = localStorageArray[1].storeName + " Total Points: " + localStorageArray[1].storeScore;
+      highScore3Top.textContent = localStorageArray[2].storeName + " Total Points: " + localStorageArray[2].storeScore;
     // if (localStorageArray.length === 0) {
     //     return -1;
     // }
-
+// const max = data.reduce(function(prev, current) {
+//     return (prev.y > current.y) ? prev : current
+// })
     // var max = localStorageArray[0];
     // var maxIndex = 0;
-
-
+ //  Math.max.apply(Math, localStorageArray.map(function() {return .storeScore;}));
+// var maxIndex;
+// maxIndex = Math.max(...localStorageArray.storeScore) -1;
+// alert(maxIndex)
    
     //     if (localStorageArray[i].storeName > max) {
     //         maxIndex = i;
@@ -129,15 +151,16 @@ var viewHighScores = function () {
     //     }
     // }
     // return maxIndex;
-    for (var i = 0; i < localStorageArray.length; i++) {
-        
-        
-        highScore1Top.textContent = localStorageArray[i].storeName + ' points ' + localStorageArray[i].storeScore;
+   // for (var i = 0; i < localStorageArray.length; i++) {
+   // arr.indexOf(Math.max(...arr))
+   // var i = localStorageArray.storeScore.indexOf(Math.max(...localStorageArray.storeScore));
+       // highScore1Top.textContent = localStorageArray[Number.MAX_VALUE,-1].storeScore;
+        // + ' points ' + localStorageArray[Math.max].storeScore;
         
         // highScore2Top.textContent = localStorageArray[i].storeName;
         // highScore3Top.textContent = localStorageArray[i].storeName;  
         //     break;
-    }      
+    //}      
 
 
 var returnHomePage = document.createElement('Button');
@@ -157,6 +180,7 @@ returnHomePage.addEventListener('click', function() {
 // submitHighScoreButton.appendChild (submitNode);
 // fullFinalScoreSection.appendChild(submitHighScoreButton);
 }
+
 
 //start screen function
 var startScreen = function() {
