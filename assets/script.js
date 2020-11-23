@@ -25,7 +25,7 @@ var buttonElFour = document.getElementById('answer4').addEventListener('click', 
 };
 clickButtonFunction();
 var finalScoreText = document.getElementById('yourFinalScore')
-var timeLeft = 100;
+var timeLeft = 10;
 var questionCount = 0;
 var answerCheck1 = 0;
 var answerCheck2 = 0;
@@ -42,6 +42,7 @@ fullFinalScoreSection.appendChild(enterNameTextHighScore);
 var createNameHighScore = document.createElement('input');
 createNameHighScore.setAttribute('type', 'text');
 createNameHighScore.setAttribute('id', 'inputNameHighScore');
+createNameHighScore.setAttribute('value', '')
 fullFinalScoreSection.appendChild(createNameHighScore);
 
 var submitHighScoreButton = document.createElement('BUTTON');
@@ -50,7 +51,14 @@ var submitNode = document.createTextNode('Submit');
 submitHighScoreButton.appendChild (submitNode);
 fullFinalScoreSection.appendChild(submitHighScoreButton);
 
+submitHighScoreButton.addEventListener('click', function() {
+
+var name = createNameHighScore.value
+
+localStorage.setItem('name', name);
+
 }
+)}
 // questions array
 var questions = [
     // answer a2
@@ -65,6 +73,8 @@ var questions = [
     // answer a3
     { q: 'd', a1: 'not correct', a2: 'not correct', a3: 'correct', a4: 'not correct', correctA: 'correct'}
 ]
+
+// submit score function
 
 //start screen function
 var startScreen = function() {
