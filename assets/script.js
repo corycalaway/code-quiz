@@ -134,6 +134,8 @@ var viewHighScores = function () {
         // highScore3Top.textContent = localStorageArray[i].storeName;  
         //     break;
     }      
+
+
 var returnHomePage = document.createElement('Button');
 returnHomePage.setAttribute = ('type', 'submit');
 var returnNode = document.createTextNode('Return to quiz');
@@ -141,6 +143,7 @@ returnHomePage.appendChild(returnNode);
 highScoreSection.appendChild(returnHomePage);
 
 returnHomePage.addEventListener('click', function() {
+    returnHomePage.remove();
     startScreen();
 })
 
