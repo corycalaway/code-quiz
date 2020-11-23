@@ -80,6 +80,10 @@ submitHighScoreButton.addEventListener('click', function() {
 
 taskDataObj.storeName = createNameHighScore.value;
 taskDataObj.storeScore = totalScore;
+submitHighScoreButton.remove();
+submitNode.remove();
+createNameHighScore.remove();
+enterNameTextHighScore.remove();
 
 localStorage.setItem('localStorageArray', JSON.stringify(localStorageArray));
 viewHighScores();
@@ -200,6 +204,13 @@ function countdown (timeInterval) {
 
 
 function initiateQuiz() {
+    timeLeft = 100;
+    questionCount = 0;
+    answerCheck1 = 0;
+    answerCheck2 = 0;
+    answerCheck3 = 0;
+    answerCheck4 = 0;
+    totalScore = 0;
     localStorageArray.push(taskDataObj)
     countdown();
     // hide start screen display questions screen
