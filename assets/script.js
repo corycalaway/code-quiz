@@ -4,6 +4,7 @@ var startQuizEl = document.getElementById('startQuiz');
 var initalScreen = document.getElementById('introToQuiz');
 var quizQuestionText = document.getElementById('quizQuestion');
 var fullFinalScoreSection = document.getElementById('finalScoreSection');
+var highScoreSection = document.getElementById('highScoresViewSection')
 //function
 var clickButtonFunction = function(timeInterval) {
 var buttonElOne = document.getElementById('answer1').addEventListener('click', function() {
@@ -43,7 +44,6 @@ var loadSavedData = function () {
     }
     savedData = JSON.parse(savedData)
     console.log(savedData)
-
     // for (var i = 0; i < savedData.length; i++) {
     //     highScoresPage(savedData[i]);
     // }
@@ -73,6 +73,7 @@ taskDataObj.storeName = createNameHighScore.value;
 taskDataObj.storeScore = totalScore;
 localStorageArray.push(taskDataObj);
 localStorage.setItem('localStorageArray', JSON.stringify(localStorageArray));
+viewHighScores();
 
 }
 )}
@@ -91,12 +92,20 @@ var questions = [
     { q: 'd', a1: 'not correct', a2: 'not correct', a3: 'correct', a4: 'not correct', correctA: 'correct'}
 ]
 
-// submit score function
+// view high scores
+var viewHighScores = function () {
+    allQuizSection.style.display = 'none';
+    fullFinalScoreSection.style.display = 'none';
+    fullFinalScoreSection.style.display = 'none';
+    highScoreSection.style.display = 'block';
+}
 
 //start screen function
 var startScreen = function() {
     allQuizSection.style.display = 'none';
     fullFinalScoreSection.style.display = 'none';
+    highScoreSection.style.display = 'none';
+
     timerEl.textContent = 'Time Remaining: ' + timeLeft;
     loadSavedData();
 };
